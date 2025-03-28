@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import subprocess
 import sys
@@ -26,10 +28,10 @@ def create_virtualenv(env_name):
 def run_in_virtualenv(env_name, command):
     # Determine the path to the virtual environment's Python executable
     env_python = os.path.join(env_name, 'Scripts', 'python') if os.name == 'nt' else os.path.join(env_name, 'bin', 'python')
-    
+
     if not os.path.exists(env_python):
         raise FileNotFoundError(f"The Python interpreter in the virtual environment was not found at: {env_python}")
-    
+
     # Prepend the virtual environment's Python executable to the command
     full_command = [env_python] + command
 
